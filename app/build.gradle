@@ -8,6 +8,7 @@ android {
     defaultConfig {
         applicationId "com.example.myrestaurants"
         minSdkVersion 21
+//        maxSdkVersion 30
         targetSdkVersion 30
 //        targetSdkVersion 27
         versionCode 1
