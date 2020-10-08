@@ -28,39 +28,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-            //find by id in layout (refactored by Butterknife)
-//        mLocationEditText = (EditText) findViewById(R.id.locationEditText);
-//        mFindRestaurantsButton = (Button) findViewById(R.id.findRestaurantsButton);
-//        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
-            ButterKnife.bind(this);
-
+        ButterKnife.bind(this);
         //create Click Listener for our button
-        mFindRestaurantsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //let’s add a toast. A toast is a simple pop up message that automatically fades in and out of the screen when triggered.
-//                Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_LONG).show();
-                //create an Intent to take to another Layout
-                //An intent represents something our app “intends to do” by describing a simple action you'd like the app to perform.
-                // Most often, an intent is used to start another activity or to hand something over to another app.
+        mFindRestaurantsButton.setOnClickListener(this);    //note this
+    }
 
+            @Override   //onClick now not nested in OnCreate
+            public void onClick(View v) {
+  //Now, as we add more links and buttons we can simply call
+  // .setOnClickListener() on the Viewelement we'd like to attach a click listener to,
+  // and add another if statement to the onClick()method. Awesome!
+              if(v==mFindRestaurantsButton){
                 //gathering data from editText
                 String location = mLocationEditText.getText().toString();
-//                Log.d(TAG, location);
                 Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
-                    //pass data with intent extras
-                intent.putExtra("location",location);
-                    //go to restaurant activity
+                //pass data with intent extras
+                intent.putExtra("location", location);
+                //go to restaurant activity
                 startActivity(intent);
 
-
-                    //to have visual confirm of line 39-43
-//                Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
-////                startActivity(intent);
-//                String location = mLocationEditText.getText().toString();
-//                Toast.makeText(MainActivity.this, location, Toast.LENGTH_LONG).show();
             }
-        });
 
     }
 }
