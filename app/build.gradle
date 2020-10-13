@@ -29,6 +29,11 @@ android {
             includeAndroidResources = true
         }
     }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'YELP_API_KEY', YelpApiKey
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -41,6 +46,8 @@ dependencies {
 //    implementation 'com.android.support:appcompat-v7:27.1.1' //added
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     testImplementation 'junit:junit:4.13'
+//    tests
+//    Roboelectric
     testImplementation 'org.robolectric:robolectric:4.4'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 //    espresso
@@ -50,4 +57,7 @@ dependencies {
 //    butterknife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+//    Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 }

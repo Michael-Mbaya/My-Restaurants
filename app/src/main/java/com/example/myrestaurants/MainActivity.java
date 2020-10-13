@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //gathering data from editText
                 String location = mLocationEditText.getText().toString();
                 Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
-                //pass data with intent extras
-                intent.putExtra("location", location);
-                //go to restaurant activity
-                startActivity(intent);
+                  //pass data with intent extras
+                  intent.putExtra("location", location);
+                  //go to restaurant activity
+                  startActivity(intent);
 
             }
 
