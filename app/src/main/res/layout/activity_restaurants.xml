@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="40dp"
-    tools:context=".RestaurantsActivity">
+    tools:context=".ui.RestaurantsActivity">
 
     <ListView
         android:id="@+id/listView"
@@ -36,6 +36,15 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="16dp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/locationTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
         android:visibility="gone" />
 
 </RelativeLayout>

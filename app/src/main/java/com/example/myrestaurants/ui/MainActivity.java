@@ -1,16 +1,16 @@
-package com.example.myrestaurants;
+package com.example.myrestaurants.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;   //The OnClickListener is one of many interfaces (https://developer.android.com/reference/android/view/View.html#nestedclasses) included in Android's View class.
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 //import butterknife.Bind;  //depreciated
+import com.example.myrestaurants.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
