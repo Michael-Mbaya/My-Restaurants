@@ -1,18 +1,20 @@
 package com.example.myrestaurants.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;   //The OnClickListener is one of many interfaces (https://developer.android.com/reference/android/view/View.html#nestedclasses) included in Android's View class.
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-//import butterknife.Bind;  //depreciated
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myrestaurants.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+//import butterknife.Bind;  //depreciated
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               if(v==mFindRestaurantsButton){
                 //gathering data from editText
                 String location = mLocationEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
+                Intent intent = new Intent(MainActivity.this, RestaurantsListActivity.class);
                   //pass data with intent extras
                   intent.putExtra("location", location);
                   //go to restaurant activity

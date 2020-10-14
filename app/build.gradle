@@ -45,6 +45,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
 //    implementation 'com.android.support:appcompat-v7:27.1.1' //added
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13'
 //    tests
 //    Roboelectric
@@ -62,4 +63,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 //    Recyclervuew support lib
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+//    picasso for images
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
