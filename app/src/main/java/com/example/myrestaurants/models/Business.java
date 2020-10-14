@@ -3,8 +3,11 @@ package com.example.myrestaurants.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
+@Parcel     //add annotation for Parceler
 public class Business {
 
     @SerializedName("rating")
@@ -58,6 +61,7 @@ public class Business {
      * 
      */
     public Business() {
+        //empty constructor needed by the Parceler Library
     }
 
     /**

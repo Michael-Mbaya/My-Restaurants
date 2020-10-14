@@ -1,6 +1,7 @@
-package com.example.myrestaurants.models;
+package com.example.myrestaurants;
 
 import com.example.myrestaurants.BuildConfig;
+
 
 public class Constants {
 

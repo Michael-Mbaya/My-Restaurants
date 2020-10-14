@@ -1,9 +1,11 @@
-
 package com.example.myrestaurants.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel     //add annotation for Parceler
 public class Location {
 
     @SerializedName("city")
@@ -33,6 +35,7 @@ public class Location {
      * 
      */
     public Location() {
+        //empty constructor needed by the Parceler Library
     }
 
     /**
@@ -45,7 +48,8 @@ public class Location {
      * @param address1
      * @param state
      */
-    public Location(String city, String country, String address2, String address3, String state, String address1, String zipCode) {
+    public Location(String city, String country, String address2, String address3,
+                    String state, String address1, String zipCode) {
         super();
         this.city = city;
         this.country = country;
@@ -54,6 +58,11 @@ public class Location {
         this.state = state;
         this.address1 = address1;
         this.zipCode = zipCode;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, %s, %s %s", this.address1, this.city, this.state, this.zipCode);
     }
 
     public String getCity() {

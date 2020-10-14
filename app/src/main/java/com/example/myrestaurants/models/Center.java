@@ -3,6 +3,9 @@ package com.example.myrestaurants.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel     //add annotation for Parceler
 public class Center {
 
     @SerializedName("latitude")
@@ -17,6 +20,7 @@ public class Center {
      * 
      */
     public Center() {
+        //empty constructor needed by the Parceler Library
     }
 
     /**

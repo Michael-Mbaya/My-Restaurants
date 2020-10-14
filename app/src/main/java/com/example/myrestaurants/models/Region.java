@@ -1,9 +1,11 @@
-
 package com.example.myrestaurants.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel     //add annotation for Parceler
 public class Region {
 
     @SerializedName("center")
@@ -15,6 +17,7 @@ public class Region {
      * 
      */
     public Region() {
+        //empty constructor needed by the Parceler Library
     }
 
     /**

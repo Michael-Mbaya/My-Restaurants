@@ -3,6 +3,9 @@ package com.example.myrestaurants.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel     //add annotation for Parceler
 public class Category {
 
     @SerializedName("alias")
@@ -17,6 +20,7 @@ public class Category {
      * 
      */
     public Category() {
+        //empty constructor needed by the Parceler Library
     }
 
     /**
