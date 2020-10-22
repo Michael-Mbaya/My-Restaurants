@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //gathering data from editText
                 String location = mLocationEditText.getText().toString();
                 addToSharedPreferences(location);
+//                  if(!(location).equals("")) {
+//                      addToSharedPreferences(location);
+//                  }
                 Intent intent = new Intent(MainActivity.this, RestaurantsListActivity.class);
                   //pass data with intent extras
                   intent.putExtra("location", location);
