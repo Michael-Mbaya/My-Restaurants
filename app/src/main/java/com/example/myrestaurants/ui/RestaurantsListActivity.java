@@ -2,6 +2,7 @@ package com.example.myrestaurants.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -35,7 +36,7 @@ public class RestaurantsListActivity extends AppCompatActivity {
 
     private RestaurantListAdapter mAdapter;
 
-    public List<Business> restaurants;
+//    public List<Business> restaurants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,6 @@ public class RestaurantsListActivity extends AppCompatActivity {
         mLocationTextView.setText("Here are all the restaurants near: " + location);
 
         YelpApi client = YelpClient.getClient();
-
         Call<YelpBusinessesSearchResponse> call = client.getRestaurants(location, "restaurants");
 
         call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
@@ -57,7 +57,10 @@ public class RestaurantsListActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    restaurants = response.body().getBusinesses();
+                    List<Business> restaurants = response.body().getBusinesses();
+                    Log.i("Results",restaurants.toString());
+
+
                     mAdapter = new RestaurantListAdapter(RestaurantsListActivity.this, restaurants);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager =

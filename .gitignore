@@ -13,5 +13,5 @@
 .externalNativeBuild
 .cxx
 
-#added
-/gradle.properties
+#added, later removed
+#/gradle.properties

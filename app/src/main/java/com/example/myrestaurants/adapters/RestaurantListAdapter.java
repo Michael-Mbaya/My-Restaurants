@@ -7,20 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.myrestaurants.R;
 import com.example.myrestaurants.models.Business;
 import com.example.myrestaurants.ui.RestaurantDetailActivity;
 import com.squareup.picasso.Picasso;
-
 import org.parceler.Parcels;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 
 public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAdapter.RestaurantViewHolder> {
 
