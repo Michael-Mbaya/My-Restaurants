@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+//Add this line also with the Firebase dependencies
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
@@ -66,9 +68,21 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 //    Recyclerview support lib
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-//    picasso for images
+//    Picasso for images
     implementation 'com.squareup.picasso:picasso:2.71828'
 //    Using Parceler for Android Parcelable Interface
     implementation 'org.parceler:parceler-api:1.1.13'
     annotationProcessor 'org.parceler:parceler:1.1.13'
+
+    //Add firebase SDK
+    implementation 'com.google.firebase:firebase-core:16.0.7'
+    // The latest version of firebase-ui currently at
+    //  implementation 'com.firebaseui:firebase-ui-database:4.3.1' causes compile errors so use the one below instead.
+    implementation 'com.firebaseui:firebase-ui-database:3.3.1'
+
+    //import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+    //Add dependency for Firebase sdk for google-analytics
+    //when using BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics'
 }

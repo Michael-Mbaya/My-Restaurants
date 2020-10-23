@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                  if(!(location).equals("")) {
 //                      addToSharedPreferences(location);
 //                  }
-                Intent intent = new Intent(MainActivity.this, RestaurantsListActivity.class);
+                  Intent intent = new Intent(MainActivity.this, RestaurantsListActivity.class);
                   //pass data with intent extras
                   intent.putExtra("location", location);
                   //go to restaurant activity

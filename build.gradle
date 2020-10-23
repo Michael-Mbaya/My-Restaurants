@@ -3,12 +3,13 @@ ext {
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        google()
+        google()    //Google's Maven Repository
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
-
+        //Add this Line below following FireBase dependencies in App build.gradle
+        classpath 'com.google.gms:google-services:4.3.4'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -19,7 +20,7 @@ allprojects {
         //Note: if you are planning to use the google() ,
         // you need Gradle 4.x+, Android Studio 3.x+ and
         // Gradle plugin for Android 3.x+.
-        google()
+        google()    //Google's Maven Repository
         jcenter()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
