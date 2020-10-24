@@ -54,9 +54,24 @@ public class RestaurantsListActivity extends AppCompatActivity {
         String location = intent.getStringExtra("location");
         mLocationTextView.setText("Here are all the restaurants near: " + location);
 
-        YelpApi client = YelpClient.getClient();
-        Call<YelpBusinessesSearchResponse> call = client.getRestaurants(location, "restaurants");
+        //testing shared preferences
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        Log.d("Shared Pref Location", mRecentAddress);
+        //
+//        if (mRecentAddress != null) {
+//            getRestaurants(mRecentAddress);
+//        }
 
+        YelpApi client = YelpClient.getClient();
+        Call<YelpBusinessesSearchResponse> call;
+        // Shared preference
+        if (mRecentAddress != null) {
+            call = client.getRestaurants(mRecentAddress, "restaurants");
+        } else {
+            call = client.getRestaurants(location, "restaurants");
+        }
+        //
         call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
             @Override
             public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
@@ -88,12 +103,6 @@ public class RestaurantsListActivity extends AppCompatActivity {
 
         });
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        Log.d("Shared Pref Location", mRecentAddress);
-//        if (mRecentAddress != null) {
-//            getRestaurants(mRecentAddress);
-//        }
     }
 
     private void showFailureMessage() {

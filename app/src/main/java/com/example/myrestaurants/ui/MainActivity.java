@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        //shared preference
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mSharedPreferences.edit();
         //create Click Listener for our button
@@ -50,10 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               if(v==mFindRestaurantsButton){
                 //gathering data from editText
                 String location = mLocationEditText.getText().toString();
-                addToSharedPreferences(location);
-//                  if(!(location).equals("")) {
-//                      addToSharedPreferences(location);
-//                  }
+//                addToSharedPreferences(location);
+                  if(!(location).equals("")) {
+                      addToSharedPreferences(location);
+                  }
                   Intent intent = new Intent(MainActivity.this, RestaurantsListActivity.class);
                   //pass data with intent extras
                   intent.putExtra("location", location);
