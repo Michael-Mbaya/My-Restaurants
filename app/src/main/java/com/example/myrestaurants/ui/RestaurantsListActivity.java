@@ -32,8 +32,8 @@ import retrofit2.Response;
 public class RestaurantsListActivity extends AppCompatActivity {
     private static final String TAG = RestaurantsListActivity.class.getSimpleName();
 
-    private SharedPreferences mSharedPreferences;
-    private String mRecentAddress;
+//    private SharedPreferences mSharedPreferences;
+//    private String mRecentAddress;
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
@@ -55,22 +55,22 @@ public class RestaurantsListActivity extends AppCompatActivity {
         mLocationTextView.setText("Here are all the restaurants near: " + location);
 
         //testing shared preferences
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        Log.d("Shared Pref Location", mRecentAddress);
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//        Log.d("Shared Pref Location", mRecentAddress);
         //
 //        if (mRecentAddress != null) {
 //            getRestaurants(mRecentAddress);
 //        }
 
         YelpApi client = YelpClient.getClient();
-        Call<YelpBusinessesSearchResponse> call;
+        Call<YelpBusinessesSearchResponse> call  = client.getRestaurants(location, "restaurants");
         // Shared preference
-        if (mRecentAddress != null) {
-            call = client.getRestaurants(mRecentAddress, "restaurants");
-        } else {
-            call = client.getRestaurants(location, "restaurants");
-        }
+//        if (mRecentAddress != null) {
+//            call = client.getRestaurants(mRecentAddress, "restaurants");
+//        } else {
+//            call = client.getRestaurants(location, "restaurants");
+//        }
         //
         call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
             @Override
