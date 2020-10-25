@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
     @BindView(R.id.locationEditText) EditText mLocationEditText;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+    @BindView(R.id.savedRestaurantsButton) TextView mSavedRestaurantsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override   //onClick now not nested in OnCreate
             public void onClick(View v) {
-  //Now, as we add more links and buttons we can simply call
-  // .setOnClickListener() on the Viewelement we'd like to attach a click listener to,
-  // and add another if statement to the onClick()method. Awesome!
+
               if(v==mFindRestaurantsButton){
                 //gathering data from editText
                 String location = mLocationEditText.getText().toString();
@@ -100,6 +99,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                   startActivity(intent);
 
             }
+
+
+                if (v == mSavedRestaurantsButton) {
+                    Intent intent = new Intent(MainActivity.this, SavedRestaurantListActivity.class);
+                    startActivity(intent);
+                }
 
     }
 

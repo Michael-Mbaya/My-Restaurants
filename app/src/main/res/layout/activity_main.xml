@@ -12,11 +12,11 @@
     <!--        android:text="Hello Android World!" />-->
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
     <TextView
         android:id="@+id/appNameTextView"
@@ -33,24 +33,42 @@
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/locationEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/locationEditText"
+        android:layout_below="@+id/appNameTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="470dp"
+        android:layout_marginEnd="140dp"
         android:background="@color/colorTextIcons"
-        android:layout_above="@+id/findRestaurantsButton"
-        android:layout_marginBottom="10dp"
-        android:padding="5dp"
         android:hint="Enter Zip Code"
-        android:layout_centerHorizontal="true" />
+        android:padding="5dp" />
 
     <Button
-        android:id="@+id/findRestaurantsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
         android:text="Find Restaurants"
-        android:textColor="@color/colorTextIcons" />
+        android:id="@+id/findRestaurantsButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible"
+        android:layout_above="@+id/savedRestaurantsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/savedRestaurantsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:text="My Saved Restaurants"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible" />
 
 </RelativeLayout>

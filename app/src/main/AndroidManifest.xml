@@ -11,12 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.RestaurantDetailActivity"></activity>
-        <!-- //points 2 pre-exist theme in styles.xml file in res -->
+        <activity android:name=".ui.SavedRestaurantListActivity"></activity>
+        <activity android:name=".ui.RestaurantDetailActivity" /> <!-- //points 2 pre-exist theme in styles.xml file in res -->
         <activity android:name=".ui.RestaurantsListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.myrestaurants.ui.MainActivity"></meta-data>
+                android:value="com.example.myrestaurants.ui.MainActivity" />
         </activity>
         <activity
             android:name=".ui.MainActivity"
