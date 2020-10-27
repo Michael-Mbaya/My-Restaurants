@@ -78,4 +78,3 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         }
     }
 }
-
