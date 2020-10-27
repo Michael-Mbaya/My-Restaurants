@@ -61,6 +61,7 @@ dependencies {
 //    implementation 'com.android.support:appcompat-v7:27.1.1' //added
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.4.0'
     testImplementation 'junit:junit:4.13.1'
 //    tests
 //    Roboelectric
@@ -88,15 +89,15 @@ dependencies {
     annotationProcessor 'org.parceler:parceler:1.1.13'
 
     //Add firebase SDK
-    implementation 'com.google.firebase:firebase-core:17.5.1'
-    implementation 'com.google.firebase:firebase-database:19.5.0'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
     // The latest version of firebase-ui currently at
     //  implementation 'com.firebaseui:firebase-ui-database:4.3.1' causes compile errors so use the one below instead.
     implementation 'com.firebaseui:firebase-ui-database:3.3.1'
 
-    //import the Firebase BoM
-    implementation platform('com.google.firebase:firebase-bom:25.12.0')
-    //Add dependency for Firebase sdk for google-analytics
-    //when using BoM, don't specify versions in Firebase dependencies
-    implementation 'com.google.firebase:firebase-analytics'
+//    //import the Firebase BoM
+//    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+//    //Add dependency for Firebase sdk for google-analytics
+//    //when using BoM, don't specify versions in Firebase dependencies
+//    implementation 'com.google.firebase:firebase-analytics'
 }
