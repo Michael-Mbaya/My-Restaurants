@@ -3,13 +3,13 @@ package com.example.myrestaurants.adapters;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
-public class MyRestaurantsArrayAdapter extends ArrayAdapter {
+public class MyCustomArrayAdapter extends ArrayAdapter {
 
     private Context mContext;
     private String[] mRestaurants;
     private String[] mCuisines;
 
-    public MyRestaurantsArrayAdapter(Context mContext, int resource, String[] mRestaurants, String[] mCuisines) {
+    public MyCustomArrayAdapter(Context mContext, int resource, String[] mRestaurants, String[] mCuisines) {
         super(mContext, resource);
         this.mContext = mContext;
         this.mRestaurants = mRestaurants;

@@ -1,4 +1,4 @@
-package com.example.myrestaurants;
+package com.example.myrestaurants.models;
 
 import org.parceler.Parcel;
 
@@ -16,21 +16,23 @@ public class Restaurant {
     double latitude;
     double longitude;
     List<String> categories = new ArrayList<>();
+    private String pushId;
 
-    public Restaurant() {}
+    public Restaurant(){}
 
-    public Restaurant(String name, String phone, String website, double rating, String imageUrl, ArrayList<String> address, double latitude, double longitude, ArrayList<String> categories) {
+    public Restaurant(String name, String phone, String website,
+                      double rating, String imageUrl, ArrayList<String> address,
+                      double latitude, double longitude, ArrayList<String> categories ){
         this.name = name;
         this.phone = phone;
         this.website = website;
         this.rating = rating;
-        this.imageUrl = getLargeImageUrl(imageUrl);
+        this.imageUrl = imageUrl;
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
         this.categories = categories;
     }
-
     public String getName() {
         return name;
     }
@@ -40,14 +42,14 @@ public class Restaurant {
     }
 
     public String getWebsite() {
-        return website;
+        return  website;
     }
 
     public double getRating() {
         return rating;
     }
 
-    public String getImageUrl() {
+    public String getImageUrl(){
         return imageUrl;
     }
 
@@ -71,5 +73,12 @@ public class Restaurant {
         String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
         return largeImageUrl;
     }
-}
 
+    public String getPushId(){
+        return pushId;
+    }
+
+    public void setPushId(String pushId){
+        this.pushId = pushId;
+    }
+}

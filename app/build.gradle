@@ -88,7 +88,8 @@ dependencies {
     annotationProcessor 'org.parceler:parceler:1.1.13'
 
     //Add firebase SDK
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-core:17.5.1'
+    implementation 'com.google.firebase:firebase-database:19.5.0'
     // The latest version of firebase-ui currently at
     //  implementation 'com.firebaseui:firebase-ui-database:4.3.1' causes compile errors so use the one below instead.
     implementation 'com.firebaseui:firebase-ui-database:3.3.1'

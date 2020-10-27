@@ -15,8 +15,7 @@ import android.widget.Toast;
 
 import com.example.myrestaurants.Constants;
 import com.example.myrestaurants.R;
-import com.example.myrestaurants.models.Business;
-import com.example.myrestaurants.models.Category;
+import com.example.myrestaurants.models.Restaurant;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -36,7 +35,7 @@ import butterknife.ButterKnife;
  */
 
 
-public class RestaurantDetailFragment extends Fragment implements  View.OnClickListener{
+public class RestaurantDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.restaurantImageView) ImageView mImageLabel;
     @BindView(R.id.restaurantNameTextView) TextView mNameLabel;
     @BindView(R.id.cuisineTextView) TextView mCategoriesLabel;
@@ -46,16 +45,13 @@ public class RestaurantDetailFragment extends Fragment implements  View.OnClickL
     @BindView(R.id.addressTextView) TextView mAddressLabel;
     @BindView(R.id.saveRestaurantButton) TextView mSaveRestaurantButton;
 
-    private Business mRestaurant;
+    private Restaurant mRestaurant;
 
     public RestaurantDetailFragment() {
         // Required empty public constructor
     }
 
-
-//First method
-//The first method, newInstance(), is used instead of a constructor and returns a new instance of our RestaurantDetailFragment
-    public static RestaurantDetailFragment newInstance(Business restaurant) {
+    public static RestaurantDetailFragment newInstance(Restaurant restaurant){
         RestaurantDetailFragment restaurantDetailFragment = new RestaurantDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("restaurant", Parcels.wrap(restaurant));
@@ -63,78 +59,60 @@ public class RestaurantDetailFragment extends Fragment implements  View.OnClickL
         return restaurantDetailFragment;
     }
 
-//Next method onCreate()
-//is called when the fragment is created.
-// Here, this restaurant object is then used to set our ImageView and TextViews.we unwrap our restaurant object from the arguments we added in the newInstance() method.
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         mRestaurant = Parcels.unwrap(getArguments().getParcelable("restaurant"));
     }
 
-//onCreateView() method
-//this restaurant object is then used to set our ImageView and TextViews.
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_restaurant_detail, container, false);
         ButterKnife.bind(this, view);
-
-        Picasso.get().load(mRestaurant.getImageUrl()).into(mImageLabel);
-
-        List<String> categories = new ArrayList<>();
-
-        for (Category category: mRestaurant.getCategories()) {
-            categories.add(category.getTitle());
-        }
-
+        Picasso.get()
+                .load(mRestaurant.getImageUrl())
+                .into(mImageLabel);
         mNameLabel.setText(mRestaurant.getName());
-        mCategoriesLabel.setText(android.text.TextUtils.join(", ", categories));
+        mCategoriesLabel.setText(android.text.TextUtils.join(", ", mRestaurant.getCategories()));
         mRatingLabel.setText(Double.toString(mRestaurant.getRating()) + "/5");
         mPhoneLabel.setText(mRestaurant.getPhone());
-        mAddressLabel.setText(mRestaurant.getLocation().toString());
-
-        //set onclicklisteners
+        mAddressLabel.setText(android.text.TextUtils.join(", ", mRestaurant.getAddress()));
         mWebsiteLabel.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
-        //
         mSaveRestaurantButton.setOnClickListener(this);
-        //
         return view;
     }
 
     @Override
-    public void onClick(View v) {
-
-        if (v == mWebsiteLabel) {
+    public void onClick(View v){
+        if (v == mWebsiteLabel){
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(mRestaurant.getUrl()));
+                    Uri.parse(mRestaurant.getWebsite()));
             startActivity(webIntent);
         }
         if (v == mPhoneLabel) {
             Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
                     Uri.parse("tel:" + mRestaurant.getPhone()));
             startActivity(phoneIntent);
-        }
-        if (v == mAddressLabel) {
+        }if (v == mAddressLabel) {
             Intent mapIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("geo:" + mRestaurant.getCoordinates().getLatitude()
-                            + "," + mRestaurant.getCoordinates().getLongitude()
+                    Uri.parse("geo:" + mRestaurant.getLatitude()
+                            + "," + mRestaurant.getLongitude()
                             + "?q=(" + mRestaurant.getName() + ")"));
             startActivity(mapIntent);
-        }
-        if (v == mSaveRestaurantButton) {
+        } if (v == mSaveRestaurantButton) {
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
             restaurantRef.push().setValue(mRestaurant);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
-
     }
 
 }
-
 
 //public class RestaurantDetailFragment extends Fragment {
 //

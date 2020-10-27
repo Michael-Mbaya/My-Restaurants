@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 
 import com.example.myrestaurants.Constants;
 import com.example.myrestaurants.R;
-import com.example.myrestaurants.Restaurant;
 import com.example.myrestaurants.adapters.FirebaseRestaurantViewHolder;
+import com.example.myrestaurants.models.Restaurant;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
